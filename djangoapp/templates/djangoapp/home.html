@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Django-App{% endblock %}
+{% block navbar_home %}active{% endblock %}
+
+{% block content %}
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="jumbotron">
+    <h1>Welcome to Django-App</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent suscipit erat et augue egestas, sit amet laoreet lacus fermentum. Aliquam consectetur aliquet dui. Vestibulum sed augue rutrum, aliquam tellus et, vulputate sapien. Praesent vestibulum mattis malesuada. Cras tincidunt a nibh ac tempus. Sed in elit a arcu rhoncus viverra. Aenean faucibus, ligula tristique egestas scelerisque, magna orci aliquam ligula, sed tincidunt arcu erat eu ligula. Pellentesque vel orci massa. Nam ut mi varius, laoreet erat sagittis, pharetra augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi bibendum, risus quis mollis posuere, eros lectus tempor augue, a hendrerit ante lorem vitae nibh. Ut non justo eu lorem facilisis sollicitudin. Praesent et sapien quis erat tristique suscipit at eget felis. Ut hendrerit ex rutrum, dapibus quam at, congue mauris. Praesent sit amet egestas nulla, vestibulum gravida magna. Vestibulum luctus faucibus est nec tincidunt.
+    </p>
+    {% if not user.is_authenticated %}
+      <a class="btn btn-default" href="{% url "signin" %}">Sign-in</a>
+      <a class="btn btn-success" href="{% url "signup" %}">Sign-up</a>
+    {% else %}
+      <a class="btn btn-primary" href="{% url "signout" %}">Sign-out</a>
+    {% endif %}
+  </div>
+{% endblock %}
