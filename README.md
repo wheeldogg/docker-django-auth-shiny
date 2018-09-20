@@ -38,3 +38,9 @@ You need to install [Docker][] and [Docker-Compose][].
 [Django application as an authentication / authorization server for Shiny][post]
 
 [post]: http://pawamoy.github.io/2018/03/15/django-auth-server-for-shiny/
+
+
+## Note it was important to change the build shiny-app to use a different image.
+
+The ubuntu image was not working (R was not recognized. Thus, I used the example dockerfile below).
+https://www.shinyproxy.io/deploying-apps/
